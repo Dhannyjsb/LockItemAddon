@@ -31,7 +31,7 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 	        System.out.print("TEST OFF");
 	    }
 	    
-		public boolean OnKommendCuyAe(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+		public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 			 if (cmd.getName().equalsIgnoreCase("itemaddon")) {
 		            if (args[0].equalsIgnoreCase("reload")) {
 		                if (sender instanceof Player) {
