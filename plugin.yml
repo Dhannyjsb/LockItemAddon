@@ -1,0 +1,10 @@
+name: LockItemAddon
+main: com.inferniaserver.lockitemaddon.Main
+version: 1.0
+commands:
+ itemaddon:
+  description: /<command> [reload]
+  permission: itemaddon.admin
+permissions:
+ itemaddon.*:
+  default: op
