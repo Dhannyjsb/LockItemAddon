@@ -31,7 +31,7 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 	        System.out.print("TEST OFF");
 	    }
 	    
-		public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+		public boolean OnKommendCuyAe(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 			 if (cmd.getName().equalsIgnoreCase("itemaddon")) {
 		            if (args[0].equalsIgnoreCase("reload")) {
 		                if (sender instanceof Player) {
@@ -82,7 +82,7 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 
 	    @SuppressWarnings("deprecation")
 		@EventHandler
-	    public void onClickyThing(InventoryClickEvent e) {
+	    public void OnKlickCuyAe(InventoryClickEvent e) {
 	        List<String> listlock = getConfig().getStringList("item-list");
 	        for(String nameblock : listlock)
 	        if (e.getClick().isLeftClick()) {
@@ -177,7 +177,7 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 		            	ItemStack item2 = new ItemStack(e.getCurrentItem());
 		            	ItemMeta meta = item2.getItemMeta();
 	                    List<String> lore = new ArrayList<>();
-	                    String name = e.getCurrentItem().getItemMeta().getDisplayName(); //Or its getCustomName()
+	                    String name = e.getCurrentItem().getItemMeta().getDisplayName(); 
 	                    for(String str : e.getCurrentItem().getItemMeta().getLore()){
 	                    	lore.add(str);
 	                    		}
