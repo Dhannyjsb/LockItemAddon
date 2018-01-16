@@ -37,12 +37,12 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 		                if (sender instanceof Player) {
 		                	this.getConfig();
 		                	this.reloadConfig();
-		                        sender.sendMessage(ChatColor.RED + " plugin has been reloaded");
+		                        sender.sendMessage(ChatColor.RED + "§l[LockItemAddon]§f plugin has been reloaded");
 		                        return true;
 		                } else if (!(sender instanceof Player)) {
 		                	this.getConfig();
 		                	this.reloadConfig();
-		                    sender.sendMessage(ChatColor.RED + " plugin has been reloaded");
+		                    sender.sendMessage(ChatColor.RED + "§l[LockItemAddon]§f plugin has been reloaded");
 		                    return true;
 		                }
 		                return false;
