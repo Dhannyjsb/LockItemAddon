@@ -66,7 +66,7 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 		            			Player p = (Player) sender;
 		        	        ItemStack item = new ItemStack(Material.valueOf(getConfig().getString("stone-unlock")));
 		        	        ItemMeta im = item.getItemMeta();
-		        	        im.setDisplayName("§6§l[Unlock ITEM]");
+		        	        im.setDisplayName("§6§l[Soulbound Remove]");
 		        	        im.addEnchant(Enchantment.BINDING_CURSE, 5, true);
 		        	        item.setItemMeta(im);
 		        	        p.getInventory().addItem(item);
@@ -155,14 +155,15 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 	        if (e.getClick().isLeftClick()) {
 	        	ItemStack item = new ItemStack(Material.valueOf(getConfig().getString("stone-unlock")));
 	            ItemMeta im = item.getItemMeta();
-	            im.setDisplayName("§6§l[Unlock ITEM]");
+	            String nick = e.getView().getPlayer().getName();
+	            im.setDisplayName("§6§l[Soulbound Remove]");
 	            im.addEnchant(Enchantment.BINDING_CURSE, 5, true);
 	            item.setItemMeta(im);
 	            	if (e.getCursor().isSimilar(item) && e.getCurrentItem().getType() == Material.matchMaterial(nameblock) && e.getCurrentItem().getItemMeta().getLore() == null) {
             			e.getWhoClicked().sendMessage("§d(x) §8» §fItem tidak §6[Locked]§f !");
             			e.setCancelled(true);
 		                    }
-	            	else if (e.getCursor().isSimilar(item) && e.getCurrentItem().getType() == Material.matchMaterial(nameblock) && e.getCurrentItem().getItemMeta().getLore().contains("§6§l[Locked]")) {
+	            	else if (e.getCursor().isSimilar(item) && e.getCurrentItem().getType() == Material.matchMaterial(nameblock) && e.getCurrentItem().getItemMeta().getLore().contains("§2Soulbounded with §a"+nick)) {
 		            	ItemStack item2 = new ItemStack(e.getCurrentItem());
 		            	ItemMeta meta = item2.getItemMeta();
 	                    List<String> lore = new ArrayList<>();
@@ -171,7 +172,8 @@ public class Main extends JavaPlugin implements Listener,CommandExecutor{
 	                    	lore.add(str);
 	                    		}
 	                    meta.setDisplayName(name);
-	                    lore.remove("§6§l[Locked]");
+	                    lore.remove("§2Soulbounded with §aSerena");
+	                    lore.add("§cRequire Soulbound to use!");
 	                    meta.setLore(lore);
 		                item2.setItemMeta(meta);   
 		            	int stone = e.getCursor().getAmount();
